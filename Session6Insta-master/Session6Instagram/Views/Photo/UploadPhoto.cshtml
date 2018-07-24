@@ -1,0 +1,24 @@
+﻿@model List<Session6Instagram.Models.User>
+
+@{
+    ViewBag.Title = "UploadPhoto";
+}
+<div class="upload">
+<h4 class="feed">UploadPhoto</h4>
+    <br />
+<div class="form">
+<form action="savephoto" method="post" enctype="multipart/form-data">
+    <p>Select User</p>
+    <select class="select" name="userId">
+        @foreach (var user in Model)
+        {
+            <option  value="@user.Id">@user.Name</option>
+        }
+    </select>
+    
+        <input type="file" name="photo" />
+        <input type="text" name="caption" />
+        <button class="select" type="submit">Done!</button>
+</form>
+ </div>
+</div>

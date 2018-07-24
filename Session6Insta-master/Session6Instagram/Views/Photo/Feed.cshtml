@@ -1,0 +1,32 @@
+﻿@model List<Session6Instagram.Models.Photo>
+
+@{
+    ViewBag.Title = "Feed";
+}
+
+<style>
+    .insta
+    {
+        max-width: 200px;
+        max-height: 200px;
+    }
+</style>
+<div class="feedpage">
+<h4 class="feed">Your Feed</h4>
+    <b></b>
+
+@foreach(var photo in Model)
+{
+    if (photo.PictureData != null)
+    {
+        <br />
+        <div class="form">
+        <p>@photo.Caption</p>
+        <img class="insta" src="/photo/getimage?id=@photo.Id" />
+        <p>Image by: @photo.PhotoUser.Name</p>
+        <p>Uploaded On: @photo.Date</p>
+        <p>Likes: @photo.Likes.Count <a href="/photo/presslike?userId=1&photoId=@photo.Id" class="btn btn-primary">Like!</a></p>
+        </div>
+    }
+}
+</div>
